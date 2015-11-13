@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ticker</title>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/Ticker.js"></script>
+    <style>
+        .tickerUp {
+            color: green;
+        }
+
+        .tickerDown {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    Enter ticker symbols:<input id="symbolBox" type="text" value="MSFT,GOOG,FB,AMZN" />
+    *symbols must be separated with commas<br />
+    <input id="ButtonStart" type="button" value="Start Real-Time Quotes" />
+    <input id="ButtonStop" type="button" value="Stop Real-Time Quotes" />
+    <div id="stockTable">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                    <th>%</th>
+                    <th>Volume</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="tester">
+        <p>
+            Requests an updated real-time quote from Yahoo Finance API every 5 seconds (occurs when numbers flash).
+            <br />
+            The numbers don't change everytime because Yahoo generally updates their quotes on this service every 20-40 seconds.
+            <br />
+            Note that the prices will only change during market hours which is generally 9:30am-4:00pm Monday-Friday, excluding Holidays.
+        </p>
+    </div>
+</body>
+</html>
