@@ -1,4 +1,4 @@
-﻿$( window ).load(function() {
+$( window ).load(function() {
   $('#ButtonStop').prop('disabled', true);
 });
 
@@ -60,7 +60,7 @@ $(document).ready(function () {
             $('.tickerUp').animate({ backgroundColor: 'white' }, 'fast');
         };
     }
-
+    
     $('#ButtonStop').click(function () {
         $('#ButtonStop').prop('disabled', true);
         $('#ButtonStart').prop('disabled', false);

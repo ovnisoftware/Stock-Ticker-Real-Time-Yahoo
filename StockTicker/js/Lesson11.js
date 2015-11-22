@@ -1,7 +1,3 @@
-﻿$( window ).load(function() {
-  $('#ButtonStop').prop('disabled', true);
-});
-
 //Used to control timer interval
 var timerId = 0;
 
@@ -13,15 +9,11 @@ $.ajaxSetup({
 
 $(document).ready(function () {
     $('#ButtonStart').click(function () {
-        $('#ButtonStop').prop('disabled', false);
-        $('#ButtonStart').prop('disabled', true);
-        $('#symbolBox').prop('disabled', true);
         GetQuotes();
         timerId = window.setInterval(function () {
             GetQuotes();
         }, 5000);
     });
-
     function GetQuotes() {
         var tickers = $('#symbolBox').val();
         $.ajax({
@@ -54,17 +46,6 @@ $(document).ready(function () {
                 '</td><td>' + data.list.resources[i].resource.fields.utctime +
                 '</td></tr>');
             }
-            $('.tickerDown').animate({ backgroundColor: 'rgba(255,0,0,0.6)' }, 'fast');
-            $('.tickerDown').animate({ backgroundColor: 'white' }, 'fast');
-            $('.tickerUp').animate({ backgroundColor: 'rgba(0,255,0,0.6)' }, 'fast');
-            $('.tickerUp').animate({ backgroundColor: 'white' }, 'fast');
         };
     }
-
-    $('#ButtonStop').click(function () {
-        $('#ButtonStop').prop('disabled', true);
-        $('#ButtonStart').prop('disabled', false);
-        $('#symbolBox').prop('disabled', false);
-        clearInterval(timerId);
-    });
 });

@@ -1,4 +1,4 @@
-﻿$( window ).load(function() {
+$( window ).load(function() {
   $('#ButtonStop').prop('disabled', true);
 });
 
@@ -13,15 +13,11 @@ $.ajaxSetup({
 
 $(document).ready(function () {
     $('#ButtonStart').click(function () {
-        $('#ButtonStop').prop('disabled', false);
-        $('#ButtonStart').prop('disabled', true);
-        $('#symbolBox').prop('disabled', true);
         GetQuotes();
         timerId = window.setInterval(function () {
             GetQuotes();
         }, 5000);
     });
-
     function GetQuotes() {
         var tickers = $('#symbolBox').val();
         $.ajax({
@@ -60,11 +56,4 @@ $(document).ready(function () {
             $('.tickerUp').animate({ backgroundColor: 'white' }, 'fast');
         };
     }
-
-    $('#ButtonStop').click(function () {
-        $('#ButtonStop').prop('disabled', true);
-        $('#ButtonStart').prop('disabled', false);
-        $('#symbolBox').prop('disabled', false);
-        clearInterval(timerId);
-    });
 });
