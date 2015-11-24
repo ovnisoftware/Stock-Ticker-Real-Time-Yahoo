@@ -36,7 +36,7 @@ $(document).ready(function () {
             $("#stockTable tbody").empty();
             var arrayLength = data.list.resources.length;
             for (var i = 0; i < arrayLength; i++) {
-                if (data.list.resources[i].resource.fields.change > 0) {
+                if (data.list.resources[i].resource.fields.change >= 0) {
                     var tickerStyle = 'tickerUp';
                     var arrow = '▲';
                 }
